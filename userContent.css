@@ -1,0 +1,63 @@
+/*
+ * LibreWolf Square UI - userContent.css
+ * Squares up about: pages and internal content
+ */
+
+@-moz-document url-prefix("about:"),
+               url-prefix("chrome:") {
+
+  :root {
+    --border-radius-medium: 0px !important;
+    --border-radius-small: 0px !important;
+    --border-radius-large: 0px !important;
+    --border-radius-10: 0px !important;
+    --border-radius-12: 0px !important;
+    --arrowpanel-border-radius: 0px !important;
+    --arrowpanel-menuitem-border-radius: 0px !important;
+  }
+
+  * {
+    border-radius: 0px !important;
+  }
+
+  /* Square checkboxes */
+  input[type="checkbox"] {
+    border-radius: 0px !important;
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border: 1px solid !important;
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Square radio buttons */
+  input[type="radio"] {
+    border-radius: 0px !important;
+    appearance: none !important;
+    -moz-appearance: none !important;
+  }
+
+  /* Square buttons */
+  button {
+    border-radius: 0px !important;
+  }
+
+  /* Square inputs */
+  input[type="text"],
+  input[type="number"],
+  input[type="search"],
+  input[type="password"],
+  input[type="url"],
+  textarea,
+  select {
+    border-radius: 0px !important;
+  }
+
+  /* Square scrollbars */
+  ::-moz-scrollbar,
+  ::-moz-scrollbar-track,
+  ::-moz-scrollbar-thumb,
+  ::-moz-scrollbar-button {
+    border-radius: 0px !important;
+  }
+}

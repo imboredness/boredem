@@ -1,0 +1,306 @@
+/*
+ * LibreWolf Square UI
+ * Makes everything squared - no rounded corners anywhere
+ */
+
+/* =============================================
+   GLOBAL: Kill all border-radius
+   ============================================= */
+
+/* Override Firefox 145+ global rounded corners token */
+@layer tokens-foundation {
+  :root, :host(.anonymous-content-host) {
+    --border-radius-medium: 0px !important;
+    --border-radius-small: 0px !important;
+    --border-radius-large: 0px !important;
+  }
+}
+
+:root {
+  /* Firefox design tokens */
+  --tab-border-radius: 0px !important;
+  --toolbarbutton-border-radius: 0px !important;
+  --button-border-radius: 0px !important;
+  --arrowpanel-border-radius: 0px !important;
+  --arrowpanel-menuitem-border-radius: 0px !important;
+  --toolbar-field-border-radius: 0px !important;
+  --chrome-block-radius: 0px !important;
+  --chrome-window-gap: 0 !important;
+  --chrome-content-separator-color: transparent !important;
+
+  /* Catch-all for any other radius variables */
+  --border-radius-10: 0px !important;
+  --border-radius-12: 0px !important;
+  --border-radius-14: 0px !important;
+  --border-radius-16: 0px !important;
+  --border-radius-20: 0px !important;
+}
+
+/* Nuclear option: override every single element */
+* {
+  border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+}
+
+/* =============================================
+   TABS
+   ============================================= */
+
+.tabbrowser-tab,
+.tabbrowser-tab .tab-background,
+.tabbrowser-tab[selected="true"] .tab-background,
+.tabbrowser-tab:not([selected="true"]) .tab-background,
+.tabbrowser-tab:hover .tab-background,
+.tabbrowser-tab[selected="true"]:hover .tab-background {
+  border-radius: 0px !important;
+  box-shadow: none !important;
+}
+
+.tab-background {
+  border-radius: 0px !important;
+  margin-block: 0px !important;
+  margin-inline: 0px !important;
+}
+
+.tab-background[selected="true"] {
+  border-radius: 0px !important;
+  -moz-appearance: none !important;
+}
+
+.tabbrowser-tab {
+  -moz-appearance: none !important;
+  border-radius: 0px !important;
+  padding: 0px !important;
+}
+
+/* Tab close button */
+.tabbrowser-tab .tab-close-button {
+  border-radius: 0px !important;
+}
+
+/* =============================================
+   URL BAR / NAVIGATION BAR
+   ============================================= */
+
+#urlbar,
+#urlbar-background,
+#urlbar-input,
+#urlbar-input-container {
+  border-radius: 0px !important;
+}
+
+#urlbar[focused="true"] > #urlbar-background {
+  border-radius: 0px !important;
+  box-shadow: none !important;
+}
+
+#urlbar[open] > #urlbar-background {
+  border-radius: 0px !important;
+}
+
+/* Search bar */
+#searchbar,
+#searchbar > .searchbar-textbox,
+#search-container {
+  border-radius: 0px !important;
+}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+
+toolbarbutton,
+toolbarbutton:not([disabled]):not([cui-areatype="toolbar-menubar"]),
+#back-button,
+#forward-button,
+#stop-reload-button > toolbarbutton,
+#tracking-protection-icon-container,
+#page-action-buttons > toolbarbutton,
+.widget-overflow,
+toolbarbutton.usable-on-overflow,
+.unified-extensions-button,
+#PanelUI-button,
+#nav-bar-overflow-button {
+  border-radius: 0px !important;
+}
+
+/* All toolbar buttons on hover */
+toolbarbutton:hover,
+toolbarbutton:hover > .toolbarbutton-text,
+toolbarbutton:hover > .toolbarbutton-icon,
+toolbarbutton:hover > .toolbarbutton-badge-stack {
+  border-radius: 0px !important;
+}
+
+/* =============================================
+   MENUS & PANELS
+   ============================================= */
+
+/* All popup panels */
+panel,
+panel[type="arrow"],
+.menupopup-arrow,
+.popup-notification-body,
+.panel-arrowcontent {
+  border-radius: 0px !important;
+}
+
+/* Menu items inside panels */
+panel menuitem,
+panel menu,
+panel menucaption,
+toolbarseparator,
+.menuseparator {
+  border-radius: 0px !important;
+}
+
+/* Dropdown menus */
+.menupopup,
+.menu-menubar,
+panel[type="arrow"] {
+  border-radius: 0px !important;
+}
+
+/* =============================================
+   BUTTONS & FORM ELEMENTS
+   ============================================= */
+
+/* Generic button */
+button,
+button:hover,
+button:active,
+button:focus,
+button[disabled] {
+  border-radius: 0px !important;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="number"],
+input[type="search"],
+input[type="password"],
+input[type="url"],
+textarea,
+select {
+  border-radius: 0px !important;
+}
+
+/* Checkbox and radio overrides */
+input[type="checkbox"],
+input[type="radio"] {
+  border-radius: 0px !important;
+  appearance: none !important;
+  -moz-appearance: none !important;
+}
+
+input[type="checkbox"] {
+  border-radius: 0px !important;
+  width: 14px !important;
+  height: 14px !important;
+  border: 1px solid !important;
+}
+
+input[type="radio"] {
+  border-radius: 0px !important;
+}
+
+/* =============================================
+   DIALOGS & POPUPS
+   ============================================= */
+
+/* Popup notifications (permissions, etc.) */
+.popup-notification-body,
+.popup-notification-description,
+.popup-notification-icon,
+.popup-notification-button-container {
+  border-radius: 0px !important;
+}
+
+/* Confirmation dialog */
+#commonDialog,
+#prefWindow,
+.tabmodal-dialog,
+.tabmodal-dialogbutton,
+dialog {
+  border-radius: 0px !important;
+}
+
+/* =============================================
+   TOOLBAR CONTAINERS
+   ============================================= */
+
+#navigator-toolbox,
+#toolbar-items,
+toolbar,
+toolbarseparator,
+#TabsToolbar,
+#nav-bar,
+#PersonalToolbar,
+#titlebar,
+#TabsToolbar-customization-target {
+  border-radius: 0px !important;
+  border: none !important;
+}
+
+/* Remove gaps/borders around chrome */
+.browserContainer {
+  border: 0px !important;
+}
+
+.chrome-block {
+  border: 0px !important;
+}
+
+/* =============================================
+   SCROLLBARS
+   ============================================= */
+
+::-moz-scrollbar,
+::-moz-scrollbar-track,
+::-moz-scrollbar-thumb,
+::-moz-scrollbar-button {
+  border-radius: 0px !important;
+}
+
+/* =============================================
+   ABOUT:PAGES (userContent.css style)
+   ============================================= */
+
+/* These target internal Firefox pages - put them in userContent.css instead */
+
+/*
+ * Go to about:config and set:
+ *   toolkit.legacyUserProfileCustomizations.stylesheets = true
+ *
+ * Then create userContent.css in the same chrome/ folder with:
+ *
+ * @-moz-document url-prefix("about:"),
+ *                url-prefix("chrome:") {
+ *
+ *   :root {
+ *     --border-radius-medium: 0px !important;
+ *     --border-radius-small: 0px !important;
+ *     --border-radius-large: 0px !important;
+ *     --arrowpanel-border-radius: 0px !important;
+ *   }
+ *
+ *   * {
+ *     border-radius: 0px !important;
+ *   }
+ *
+ *   input[type="checkbox"] {
+ *     border-radius: 0px !important;
+ *     appearance: none !important;
+ *     -moz-appearance: none !important;
+ *     border: 1px solid !important;
+ *     width: 14px !important;
+ *     height: 14px !important;
+ *   }
+ *
+ *   input[type="radio"] {
+ *     border-radius: 0px !important;
+ *     appearance: none !important;
+ *     -moz-appearance: none !important;
+ *   }
+ * }
+ */
