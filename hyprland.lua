@@ -62,13 +62,11 @@ hl.config({
 		enabled = true,
 	},
 })
--- Animation curves
 hl.curve("specialWorkSwitch", { type = "bezier", points = { { 0.05, 0.7 }, { 0.1, 1 } } })
 hl.curve("emphasizedAccel", { type = "bezier", points = { { 0.3, 0 }, { 0.8, 0.15 } } })
 hl.curve("emphasizedDecel", { type = "bezier", points = { { 0.05, 0.7 }, { 0.1, 1 } } })
 hl.curve("standard", { type = "bezier", points = { { 0.2, 0 }, { 0, 1 } } })
 
--- Animation configs
 hl.animation({ leaf = "layersIn", enabled = true, speed = 5, bezier = "emphasizedDecel", style = "slide" })
 hl.animation({ leaf = "layersOut", enabled = true, speed = 4, bezier = "emphasizedAccel", style = "slide" })
 hl.animation({ leaf = "fadeLayers", enabled = true, speed = 5, bezier = "standard" })
@@ -91,7 +89,7 @@ hl.animation({ leaf = "border", enabled = true, speed = 6, bezier = "standard" }
 
 hl.config({
 	dwindle = {
-		preserve_split = true, -- You probably want this
+		preserve_split = true, 
 	},
 })
 
@@ -109,8 +107,8 @@ hl.config({
 
 hl.config({
 	misc = {
-		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
-		disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background. :(
+		force_default_wallpaper = -1, 
+		disable_hyprland_logo = false, 
 	},
 })
 
@@ -127,7 +125,7 @@ hl.config({
 
 		follow_mouse = 1,
 
-		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+		sensitivity = 0,
 		accel_profile = "flat",
 		touchpad = {
 			natural_scroll = false,
@@ -135,17 +133,13 @@ hl.config({
 	},
 })
 
-local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+local mainMod = "SUPER" 
 
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(noctCall .. "settings-toggle"))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(noctCall .. "panel-toggle control-center"))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(noctCall .. "panel-toggle launcher"))
-hl.bind(
-	mainMod .. " + M",
-	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
-)
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(noctCall .. "session lock"))
@@ -165,7 +159,7 @@ hl.bind(mainMod .. " + SHIFT + Left", hl.dsp.window.move({ direction = "l" }))
 hl.bind(mainMod .. " + SHIFT + Down", hl.dsp.window.move({ direction = "d" }))
 
 for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
+	local key = i % 10
 	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
@@ -244,8 +238,3 @@ hl.layer_rule({
 })
 
 require("noctalia").apply_theme()
-
-pcall(function()
-	dofile(os.getenv("HOME") .. "/.cache/noctalia/HVE/overlay.lua")
-end)
--- <<< HYPRLAND VISUAL EDITOR (HVE) <<<
